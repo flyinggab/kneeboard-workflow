@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{extarticle}
+\usepackage[margin=5mm]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{rowgray}{gray}{0.92}
+\definecolor{hdrblack}{RGB}{30,30,30}
+
+% ── Table helpers ──────────────────────────────────────────────────────────────
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{4pt}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{T}{>{\centering\arraybackslash}X}
+
+\newcommand{\HDR}[1]{\cellcolor{hdrblack}\textcolor{white}{\textbf{#1}}}
+\newcommand{\CH}[1]{\cellcolor{hdrblack}\textcolor{white}{\textbf{#1}}}
+
+\pagestyle{empty}
+
+\begin{document}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+%% ── MISSION NAME ──────────────────────────────────────────────────────────────
+\noindent\begin{tabularx}{\textwidth}{|T|}
+  \hline
+  \HDR{\Large OPERATION NAME \ — \ CALLSIGN} \\
+  \hline
+\end{tabularx}
+
+\vspace{5pt}
+
+%% ── TASKING + THREATS ─────────────────────────────────────────────────────────
+%% Height 8.5cm — adjust if needed to fill the page.
+\noindent\begin{tabularx}{\textwidth}{|X|X|}
+  \hline
+  \HDR{TASKING} & \HDR{THREATS} \\
+  \hline
+  \begin{minipage}[t][8.5cm][t]{\linewidth}
+    \vspace{5pt}
+    \begin{itemize}
+      \setlength{\itemsep}{4pt}
+      \item \textbf{PHASE 1 — NAME:} Description of objective.
+      % Add or remove \item lines as needed — no fixed number of phases.
+      \item Additional flight notes.
+    \end{itemize}
+    \vspace{5pt}
+  \end{minipage}
+  &
+  \begin{minipage}[t][8.5cm][t]{\linewidth}
+    \vspace{5pt}
+    \begin{itemize}
+      \setlength{\itemsep}{4pt}
+      \item Threat system 1 — area/waypoint.
+      \item Threat system 2 — area/waypoint.
+      \item General caution notes.
+    \end{itemize}
+    \vspace{5pt}
+  \end{minipage} \\
+  \hline
+\end{tabularx}
+
+\vspace{5pt}
+
+%% ── WAYPOINTS ─────────────────────────────────────────────────────────────────
+%% ALT: use FL XXX for > 5,000 ft; X,XXX ft for <= 5,000 ft.
+\noindent\begin{tabularx}{\textwidth}{|C{0.7cm}|X|C{1.5cm}|C{1.2cm}|X|}
+  \hline
+  \HDR{WP} & \HDR{ACTION} & \HDR{ALT} & \HDR{MACH} & \HDR{REMARKS} \\
+  \hline
+  \rowcolor{white}  1  & & & & \\
+  \hline
+  \rowcolor{rowgray}2  & & & & \\
+  \hline
+  \rowcolor{white}  3  & & & & \\
+  \hline
+  \rowcolor{rowgray}4  & & & & \\
+  \hline
+  \rowcolor{white}  5  & & & & \\
+  \hline
+  \rowcolor{rowgray}6  & & & & \\
+  \hline
+  \rowcolor{white}  7  & & & & \\
+  \hline
+  \rowcolor{rowgray}8  & & & & \\
+  \hline
+  \rowcolor{white}  9  & & & & \\
+  \hline
+  \rowcolor{rowgray}10 & & & & \\
+  \hline
+\end{tabularx}
+
+\vspace{5pt}
+
+%% ── COMMS ─────────────────────────────────────────────────────────────────────
+%% COMM 1 = player primary radio presets.
+%% COMM 2 = player secondary radio presets.
+%% CH column is always black (\CH{}). 10 channels + GUARD.
+\noindent\begin{tabularx}{\textwidth}{|X|C{1.5cm}|C{1.3cm}|C{0.9cm}|C{1.5cm}|C{1.3cm}|X|}
+  \hline
+  \HDR{COMM 1} & \HDR{FRQ} & \HDR{TCN} & \HDR{CH} & \HDR{FRQ} & \HDR{TCN} & \HDR{COMM 2} \\
+  \hline
+  \rowcolor{white}  — & — & — & \CH{1}  & — & — & — \\
+  \hline
+  \rowcolor{rowgray}— & — & — & \CH{2}  & — & — & — \\
+  \hline
+  \rowcolor{white}  — & — & — & \CH{3}  & — & — & — \\
+  \hline
+  \rowcolor{rowgray}— & — & — & \CH{4}  & — & — & — \\
+  \hline
+  \rowcolor{white}  — & — & — & \CH{5}  & — & — & — \\
+  \hline
+  \rowcolor{rowgray}— & — & — & \CH{6}  & — & — & — \\
+  \hline
+  \rowcolor{white}  — & — & — & \CH{7}  & — & — & — \\
+  \hline
+  \rowcolor{rowgray}— & — & — & \CH{8}  & — & — & — \\
+  \hline
+  \rowcolor{white}  — & — & — & \CH{9}  & — & — & — \\
+  \hline
+  \rowcolor{rowgray}— & — & — & \CH{10} & — & — & — \\
+  \hline
+  \rowcolor{white}  GUARD & 243.000 & — & \CH{G} & 243.000 & — & GUARD \\
+  \hline
+\end{tabularx}
+
+\vspace{5pt}
+
+%% ── HOME/DIVERT + TANKER ──────────────────────────────────────────────────────
+%% Tanker HDG: both legs for racetrack (e.g. 035/215); blank for ship orbits.
+\noindent\begin{tabularx}{\textwidth}{|X|C{1.0cm}|C{1.2cm}|C{1.5cm}|C{1.9cm}||X|C{1.2cm}|C{1.1cm}|C{1.1cm}|C{1.1cm}|}
+  \hline
+  \HDR{HOME/DIVERT} & \HDR{ELEV} & \HDR{TCN} & \HDR{ILS} & \HDR{BRC/RW} &
+  \HDR{TANKER} & \HDR{TCN} & \HDR{ALT} & \HDR{HDG} & \HDR{MACH} \\
+  \hline
+  \rowcolor{white}  MOTHER & — & — & — & — & — & — & — & — & — \\
+  \hline
+  \rowcolor{rowgray}— & — & — & — & — & — & — & — & — & — \\
+  \hline
+  \rowcolor{white}  — & — & — & — & — & — & — & — & — & — \\
+  \hline
+\end{tabularx}
+
+\end{document}
